@@ -12,3 +12,6 @@ SQLAlchemy
 alembic
 psycopg2
 fastapi-sqlalchemy
+sqlmodel
+python-dotenv
+mysql-connector-python

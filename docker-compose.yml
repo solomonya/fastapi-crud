@@ -3,16 +3,16 @@ version: '3.8'
 services:
 
   db:
-    container_name: mariadb_sql
-    image: mariadb
+    container_name: my_sql
+    image: mysql
     restart: always
     ports:
       - 5436:5436
     environment:
-      - MARIADB_USER=${DB_USER}
-      - MARIADB_PASSWORD=${DB_PASSWORD}
-      - MARIADB_DATABASE=${DB_NAME}
-      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASS}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
 
   dbadmin:
     container_name: phpmyadmin
