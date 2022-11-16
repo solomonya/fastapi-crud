@@ -5,6 +5,7 @@ from sqlalchemy import pool
 from sqlmodel import SQLModel
 
 from src.study_load.models.teacher import Teacher
+from src.study_load.models.admin import Admin
 
 from alembic import context
 
