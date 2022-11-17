@@ -4,8 +4,9 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from sqlmodel import SQLModel
 
-from src.study_load.models.teacher import Teacher
-from src.study_load.models.admin import Admin
+from src.study_load.models import Teacher
+from src.study_load.models import Admin
+from src.study_load.models import Department
 
 from alembic import context
 
