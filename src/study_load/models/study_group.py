@@ -6,6 +6,6 @@ class StudyGroupBase(SQLModel):
     code: str
     name: str
 
-class StudyGroup(StudyGroupBase):
+class Sgroup(StudyGroupBase, table=True):
     id: int = Field(default=None, primary_key=True)
     specialily_id: Optional[int] = Field(default=None, foreign_key='speciality.id')

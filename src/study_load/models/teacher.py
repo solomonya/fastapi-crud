@@ -10,7 +10,7 @@ class TeacherBase(SQLModel):
   hiring_date: date
   position: str
   email: str
-  password: str
+  password_hash: str
 
 class Teacher(TeacherBase, table=True):
   id: int = Field(default=None, primary_key=True)

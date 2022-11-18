@@ -7,6 +7,10 @@ from sqlmodel import SQLModel
 from src.study_load.models import Teacher
 from src.study_load.models import Admin
 from src.study_load.models import Department
+from src.study_load.models import Speciality
+from src.study_load.models import Sgroup
+from src.study_load.models import Student
+from src.study_load.models import Discipline
 
 from alembic import context
 
@@ -23,6 +27,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+
 target_metadata = SQLModel.metadata
 
 # other values from the config, defined by the needs of env.py,

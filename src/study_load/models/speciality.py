@@ -6,6 +6,6 @@ class SpecialityBase(SQLModel):
     code: str
 
 
-class Speciality(SpecialityBase):
+class Speciality(SpecialityBase, table=True):
     id: int = Field(default=None, primary_key=True)
 
