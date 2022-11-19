@@ -4,7 +4,8 @@ from datetime import date
 
 class DepartmentBase(SQLModel):
   name: str
-  foundation_date: str
+  foundation_date: date
+  admin_id: int
 
 class Department(DepartmentBase, table=True):
   id: int = Field(default=None, primary_key=True)

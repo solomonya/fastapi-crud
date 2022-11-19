@@ -4,7 +4,8 @@ from ..models import Teacher
 from ..services import TeacherService
 
 router = APIRouter(
-  prefix='/teachers'
+  prefix='/teachers',
+  tags=['teachers']
 )
 
 @router.get('/', response_model = List[Teacher])
