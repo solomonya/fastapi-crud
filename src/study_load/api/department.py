@@ -6,7 +6,7 @@ from ..services import get_current_admin
 
 router = APIRouter(
   prefix='/department',
-  tags=['department']
+  tags=['Department']
 )
 
 

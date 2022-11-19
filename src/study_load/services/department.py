@@ -4,6 +4,7 @@ from sqlmodel import Session, select
 from ..models import Department
 from typing import List
 
+
 class DepartmentService:
   def __init__(self, session: Session = Depends(get_session)):
     self.session = session
@@ -40,7 +41,7 @@ class DepartmentService:
     self.session.commit()
     self.session.refresh(department_db)
 
-    return department
+    return department_db
 
   def delete_department(self, department_id: int):
     department_db = self._get(department_id)
