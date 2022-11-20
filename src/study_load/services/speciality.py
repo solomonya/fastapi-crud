@@ -30,7 +30,7 @@ class SpecialityService:
 
     return speciality
 
-  def update_speciality(self, data: SpecialityBase) -> Speciality:
+  def update_speciality(self, data: Speciality) -> Speciality:
     speciality_db = self._get(data.id)
     speciality_data = data.dict(exclude_unset=True)
 
