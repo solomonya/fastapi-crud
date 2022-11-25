@@ -7,6 +7,7 @@ class StudentBase(SQLModel):
   first_name: str
   middle_name: str
   perfomance: str
+  study_group_id: int
 
 
 class Student(StudentBase, table=True):

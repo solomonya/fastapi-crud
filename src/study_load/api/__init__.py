@@ -4,6 +4,7 @@ from .department import router as department_router
 from .auth import router as auth_router
 from .speciality import router as speciality_router
 from .study_group import router as study_group_router
+from .student import router as students_router
 
 router = APIRouter()
 
@@ -13,7 +14,8 @@ routes  = (
     department_router,
     auth_router,
     speciality_router,
-    study_group_router
+    study_group_router,
+    students_router,
   ]
 )
 
