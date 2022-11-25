@@ -16,7 +16,7 @@ def get_students(
 ):
     return service.get_all()
 
-@router.post('/', response_model = Student)
+@router.post('/', response_model=Student)
 def create_student(
     student_data: StudentBase, 
     admin: Admin = Depends(get_current_admin),
@@ -24,4 +24,8 @@ def create_student(
 ):
     return service.create(student_data)
 
-@router.update('/', response_model = Student)
+@router.put('/', response_model = Student)
+def update(
+    admin: Admin = Depends(get_current_admin)
+):
+    pass
