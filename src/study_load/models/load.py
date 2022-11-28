@@ -1,23 +1,16 @@
 from sqlmodel import Relationship, SQLModel, Field
-from typing import Optional, List
-from .discipline import Discipline
-from .teacher import Teacher
-from .study_group import Sgroup
+from . import links
+from typing import List, Optional
 
 
-class TeacherStudyLoadLink(SQLModel, table=True):
-    study_load_id:Optional[int] = Field(
-        default=None, foreign_key="load.id",
-        primary_key=True
-    )
-
-    teacher_id:Optional[int] = Field(
-        default=None, foreign_key="teacher.id",
-        primary_key=True
-    )
+class LoadCreate(SQLModel):
+    discipline_id: int
+    teachers: List[int]
+    groups: List[int]
 
 class Load(SQLModel, table=True):
     id: int = Field(primary_key=True, default=None)
-    discipline_id: int = Field(foreign_key='discipline.id')
+    discipline_id: Optional[int] = Field(default=None, foreign_key='discipline.id')
 
-    teachers:List[Teacher] = Relationship(back_populates="teachers", link_model=TeacherStudyLoadLink)
+    teacher:List['Teacher']  = Relationship(back_populates="load", link_model=links.TeacherStudyLoadLink)
+    sgroup:List['Sgroup'] = Relationship(back_populates='load', link_model=links.GroupStudyLoadLink)

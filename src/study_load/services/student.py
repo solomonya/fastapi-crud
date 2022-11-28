@@ -39,7 +39,7 @@ class StudentsService:
        self.session.refresh(student_db)
 
        return self._get(data.id)
- 
+
     def delete(self, student_id: int) -> dict[str, bool]:
         student_db = self._get(student_id)
         self.session.delete(student_db)
@@ -47,4 +47,4 @@ class StudentsService:
 
         return {"success": True}
 
- 
+

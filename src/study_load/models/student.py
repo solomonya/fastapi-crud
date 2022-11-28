@@ -6,7 +6,7 @@ class StudentBase(SQLModel):
   last_name: str
   first_name: str
   middle_name: str
-  perfomance: str
+  perfomance: float
   study_group_id: int
 
 

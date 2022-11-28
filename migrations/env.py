@@ -4,13 +4,7 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from sqlmodel import SQLModel
 
-from src.study_load.models import Teacher
-from src.study_load.models import Admin
-from src.study_load.models import Department
-from src.study_load.models import Speciality
-from src.study_load.models import Sgroup
-from src.study_load.models import Student
-from src.study_load.models import Discipline
+import src.study_load.models
 
 from alembic import context
 
