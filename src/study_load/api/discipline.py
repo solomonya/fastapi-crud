@@ -5,40 +5,50 @@ from ..services import DisciplineService
 from ..services import get_current_admin
 
 router = APIRouter(
-  prefix='/discipline',
-  tags=['Discipline']
+    prefix='/discipline',
+    tags=['Discipline']
 )
 
 
-@router.get('/', response_model = List[Discipline])
+@router.get('/{discipline_id}', response_model=Discipline)
+def get_discipline(
+        discipline_id: int,
+        admin=Depends(get_current_admin),
+        service: DisciplineService = Depends(),
+):
+    return service.get_one(discipline_id)
+
+
+@router.get('/', response_model=List[Discipline])
 def get_departments(
-  service: DisciplineService = Depends(),
-  admin: Admin = Depends(get_current_admin)
-  ):
-  return service.get_all()
+    service: DisciplineService = Depends(),
+    admin: Admin = Depends(get_current_admin)
+):
+    return service.get_all()
 
 
 @router.post('/', response_model=Discipline)
 def create_department(
-  discipline_data: DisciplineBase,
-  service: DisciplineService = Depends(),
-  admin: Admin = Depends(get_current_admin),
+    discipline_data: DisciplineBase,
+    service: DisciplineService = Depends(),
+    admin: Admin = Depends(get_current_admin),
 ):
-  return service.create_discipline(discipline_data)
+    return service.create_discipline(discipline_data)
+
 
 @router.put('/')
 def update_disciplines(
-  discipline_data: Discipline,
-  service: DisciplineService = Depends(),
-  admin: Admin = Depends(get_current_admin)
+    discipline_data: Discipline,
+    service: DisciplineService = Depends(),
+    admin: Admin = Depends(get_current_admin)
 ):
-  return service.update_discipline(discipline_data)
+    return service.update_discipline(discipline_data)
 
 
-@router.delete('/', response_model = dict[str, bool])
+@router.delete('/', response_model=dict[str, bool])
 def delete_discipline(
-  discipline_id: int,
-  service: DisciplineService = Depends(),
-  admin: Admin = Depends(get_current_admin)
-  ):
-  return service.delete_discipline(discipline_id)
+    discipline_id: int,
+    service: DisciplineService = Depends(),
+    admin: Admin = Depends(get_current_admin)
+):
+    return service.delete_discipline(discipline_id)
